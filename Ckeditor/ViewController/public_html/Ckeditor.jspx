@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="Ckeditor.jspx" id="d1">
+            <af:form id="f1">
+            <af:resource type="javascript" source="/ckeditor5/build/ckeditor.js"></af:resource>
+             <af:resource type="javascript" source="/js/SWATGlobal.js"/>
+
+<af:resource type="javascript" source="https://code.jquery.com/jquery-1.10.2.js"/>
+<af:resource type="javascript" source="/js/jquery-notification.js"/>
+
+            <af:inputText id="editor" value="#{pageFlowScope.data}" rows="50">
+            </af:inputText>
+            
+                <af:resource type="javascript"> 
+            $(window).load(function() {
+                    ClassicEditor.create( document.querySelector( '#editor' ),{
+                        licenseKey: '46WxPrcmWh/pLkUdd931tdY8yB2H6+vGLRxdbOfn6SvY+mxjPaaz51A+5A==',
+                         image: {
+                            resizeUnit: 'px'  ,                       
+                          resizeOptions: [
+                {
+                icon:'small',
+                    name: 'resizeImage:original',
+                    label: 'Small',
+                    value: '200'
+                },
+                { icon:'medium',
+                    name: 'resizeImage:100',
+                    label: 'Medium',
+                    value: '400'
+                },
+                { icon:'large',
+                    name: 'resizeImage:200',
+                    label: 'Large',
+                    value: '570'
+                }
+            ],
+            
+        toolbar: [
+            'resizeImage:original',
+            'resizeImage:100',
+            'resizeImage:200',
+        ]
+                         }
+      } );
+                    
+ });
+                
+       
+    </af:resource>
+            
+            
+            
+            <af:resource type="css">
+.ck.ck-editor__editable_inline:not(.ck-editor__nested-editable) {
+            min-height: 300px;
+            
+        }
+        
+        .ck.ck-tooltip_s{
+            padding-left:15px;   
+            }
+        #editor-container .ck.ck-editor {
+            width: 860px;
+              padding-bottom:500px;
+        }
+        li {
+    text-align: left;
+    list-style-position: inside;
+}
+.ck .ck-widget__resizer__handle {
+    visibility:hidden;
+}
+        
+</af:resource>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
